@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electricity AI Client Management</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ELECTRICITY SERVICE PLATFORM</p>
+      <h1>Client Access Management</h1>
+    </div>
+    <span class="status">Prototype</span>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Clients</h2>
+          <p>Select a client to view permitted account information.</p>
+        </div>
+      </div>
+      <div id="clientList" class="client-list"></div>
+    </section>
+
+    <section class="panel">
+      <div id="clientDetails">
+        <div class="empty">
+          <h2>Select a client</h2>
+          <p>The dashboard will show the client's service and usage summary here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel ai-panel">
+      <div>
+        <p class="eyebrow">CLAUDE ASSISTANT</p>
+        <h2>Ask about the selected client</h2>
+        <p>Questions are sent through the backend with limited client context.</p>
+      </div>
+      <textarea id="question" rows="4" placeholder="Example: Explain why this month's usage is higher."></textarea>
+      <button id="askButton">Ask Claude</button>
+      <div id="answer" class="answer">Claude's response will appear here.</div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
