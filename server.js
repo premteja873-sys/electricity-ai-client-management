@@ -43,6 +43,10 @@ const clients = [
   }
 ];
 
+app.get("/api/health", (_req, res) => {
+  res.json({ status: "ok", claudeConfigured: Boolean(process.env.ANTHROPIC_API_KEY) });
+});
+
 app.get("/api/clients", (_req, res) => {
   res.json(clients);
 });
@@ -84,7 +88,8 @@ app.post("/api/claude/ask", async (req, res) => {
 
   try {
     const response = await anthropic.messages.create({
-      model: "claude-3-5-haiku-latest",
+      // Current Claude API model listed by Anthropic for fast workloads.
+      model: "claude-haiku-4-5",
       max_tokens: 500,
       system:
         "You are an electricity client-support assistant. Use only the supplied client context. Be concise and clear. Do not invent account facts, make binding financial decisions, or bypass access controls. When discussing unusual usage, explain that the observation is informational.",
@@ -114,7 +119,8 @@ app.post("/api/claude/ask", async (req, res) => {
   }
 });
 
-app.get("*", (_req, res) => {
+// Express 5 requires a named wildcard; this also matches "/".
+app.get("/{*splat}", (_req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
