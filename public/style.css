@@ -1,0 +1,150 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f3f6fa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 28px 6vw;
+  background: #0f172a;
+  color: white;
+}
+
+h1, h2, p { margin-top: 0; }
+
+h1 { margin-bottom: 0; font-size: 2rem; }
+
+.eyebrow {
+  margin-bottom: 8px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  opacity: .7;
+}
+
+.status {
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: .8rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 20px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #dfe5ed;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+}
+
+.ai-panel { grid-column: 1 / -1; }
+
+.panel-head { margin-bottom: 18px; }
+
+.panel p { color: #697586; }
+
+.client-list {
+  display: grid;
+  gap: 10px;
+}
+
+.client {
+  width: 100%;
+  text-align: left;
+  border: 1px solid #dde3eb;
+  background: #fafbfd;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.client:hover, .client.selected {
+  border-color: #64748b;
+  background: #f1f5f9;
+}
+
+.client strong { display: block; }
+.client span { color: #697586; font-size: .9rem; }
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.metric {
+  padding: 15px;
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+.metric small {
+  display: block;
+  color: #687386;
+  margin-bottom: 5px;
+}
+
+.metric strong { font-size: 1.15rem; }
+
+.empty {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  margin: 14px 0;
+  resize: vertical;
+  border: 1px solid #cfd7e3;
+  border-radius: 12px;
+  padding: 14px;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  background: #111827;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled { opacity: .55; cursor: wait; }
+
+.answer {
+  margin-top: 14px;
+  padding: 16px;
+  min-height: 80px;
+  white-space: pre-wrap;
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  .ai-panel { grid-column: auto; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+}
